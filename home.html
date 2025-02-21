@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Photo Gallery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <style>
+        .modal img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">My Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="home.html">HOME</a></li>
+                <li class="nav-item"><a class="nav-link" href="photos.html">PHOTOS</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">BLOG</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <h2 class="text-center">Photo Gallery</h2>
+        <div class="row">
+            <!-- Image Cards -->
+            <script>
+                let images = ["image 1.jpg", "image 2.jpg", "image 3.jpg", "image 4.jpg", "image 5.jpg", "image 6.jpg"];
+                images.forEach((img, index) => {
+                    document.write(`
+                        <div class="col-md-4 mb-3">
+                            <img src="${img}" class="img-fluid img-thumbnail" data-toggle="modal" data-target="#modal${index}" alt="Image ${index+1}">
+                        </div>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal${index}" tabindex="-1" role="dialog" aria-labelledby="modalLabel${index}" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title w-100" id="modalLabel${index}">Image ${index+1}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="${img}" class="img-fluid" alt="Image ${index+1}">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `);
+                });
+            </script>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>Follow us on:</p>
+            <div>
+                <a href="https://facebook.com" target="_blank" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
